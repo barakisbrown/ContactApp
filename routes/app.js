@@ -9,9 +9,8 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next){
-    res.send('This page requires a login. Redirecting you to the login page');
-    // NEED TO WAIT ABOUT 2 SEC
     res.redirect('/login');
+    // NEED TO WAIT ABOUT 2 SEC
 });
 
 function loadJSON() {
