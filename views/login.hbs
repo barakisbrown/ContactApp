@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="../stylesheets/login.css" />
+<script src="../javascripts/js.cookie.js"></script>
+<script src="../javascripts/login.js"></script>
+
+<div class="container">
+    <div class="login">
+        <h4>Login to the Contacts App</h4>
+            <hr>
+                <form class="login-inner" method="post" action="/app">
+                    <input type="email" class="form-control email" id="email-input" placeholder="Email">
+                    <input type="password" class="form-control password" id="password-input" placeholder="Password">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="remember" value="Remember me"> Remember me?
+                    </label>
+                    <input class="btn btn-block btn-lg btn-success submit" value="Login" name="submitForm" id="submitBtn">
+                </form>
+            <a href="#" class="btn btn-sm btn-primary register">Register</a>
+            <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+    </div>
+</div>

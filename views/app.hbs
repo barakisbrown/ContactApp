@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../stylesheets/app.css" />
+<script src="../javascripts/js.cookie.js"></script>
+<script>
+    var valid = Cookies.get('isValid');
+
+    if (typeof valid == 'undefined') {
+        try {
+            window.stop();
+        }catch(e) {
+           document.execCommand('Stop');
+        }
+        // redirect back to the login page
+        document.location.replace('/login');
+    }
+</script>
+
+<div id="main">
+    <header>
+        <ul>
+            <li class="welcome">Welcome, {{user_name}}</li>
+            <li class="logout">Logout</li>
+        </ul>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Logo Here</a></li>
+            <li><a href="#">New Contact</a></li>
+            <li><a href="#">Edit Contact</a></li>
+            <li><a href="#">Delete Contact</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="table responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="col-md-4">NAME</th>
+                <th class="col-md-4">City</th>
+                <th class="col-md-4">State</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#list}}
+                <tr>
+                    <td>{{Name}}</td>
+                    <td>{{City}}</td>
+                    <td>{{State}}</td>
+                </tr>
+            {{/list}}
+            </tbody>
+        </table>
+    </div>
+    <footer>
+       Copyright © lokislayer.com
+    </footer>
+</div>
