@@ -15,6 +15,7 @@ var UserSchema = new Schema({
     username: {type:String,required:true,index:{unique: true}},
     password: {type:String,required:true},
     Contacts: {type:mongoose.Schema.Types.ObjectId, ref: 'Contacts'},
+    email:    {type:String,required:true},
     loginAttempts: {type: Number, required: true, defaults: 0},
     lockUntil: {type: Number}
 });
@@ -78,9 +79,19 @@ var reasons = UserSchema.statics.failedLogin = {
     MAX_ATTEMPTS: 2
 };
 
-UserSchema.statics.getAuthenticated = function(username, password, cb) {
+UserSchema.statics.getAuthenticated = function(username,email,password, cb) {
 
-    this.findOne({username: username}, function(err, user) {
+    var authChoice = {};
+    if ((username == null)&&(email == null)) {
+        return cb(new Error("Both are null"));
+    } else {
+        if (username == null) {
+            authChoice = {email: email};
+        } else {
+            authChoice = {username: username};
+        }
+    }
+    this.findOne(authChoice, function(err, user) {
 
         if (err) return cb(err);
 
@@ -130,6 +141,23 @@ UserSchema.statics.getAuthenticated = function(username, password, cb) {
 
     });
 
+};
+
+UserSchema.statics.getUser = function(username,email,cb) {
+
+    var whichUser = {};
+    if ((!username && !email)) {
+        whichUser = {username: username, email:email};
+    } else if (!username) {
+        whichUser = {username: username};
+    } else {
+        whichUser = {email: email};
+    }
+
+    this.findOne(whichUser, function(err, user) {
+        if (err) return cb(err);
+        return cb(null,user);
+    });
 };
 
 module.exports = mongoose.model('User',UserSchema);
