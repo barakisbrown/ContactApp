@@ -1,0 +1,95 @@
+.register-title {
+
+    width: 270px;
+    line-height: 43px;
+    margin: 50px auto 20px;
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    color: rgba(255,255,255, .95);
+    text-align: center;
+    text-shadow: 0 1px rgba(0,0,0, .3);
+    background: #d7604b;
+    border-radius: 3px;
+    @include linear-gradiant(top, #dc745e, #d45742);
+    @include box-shadow(inset 0 1px rpgba(white, .1),
+                        inset 0 0 0 1px rgba(white, .05),
+                        0 0 1px 1px rgba(black, .1),
+                        0 1px 3px rgba(black, .3));
+}
+
+.register {
+
+    width: 270px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 3px;
+    @include box-shadow(0 0 1px 1px rgba(black, .1),
+                        0 1px 3px rgba(black, .3));
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    @include box-sizing(border-box);
+}
+
+
+.register-input {
+
+    display: block;
+    width: 100%;
+    height: 38px;
+    margin-top: 2px;
+    font-weight: 500;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.register-input:focus {
+     border-color: #1e9ce6;
+     outline: 0;
+}
+
+
+.register-button {
+
+    display: block;
+    width: 100%;
+    height: 42px;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #494d59;
+    text-align: center;
+    text-shadow: 0 1px rgba(255, 255, 255, .5);
+    background: #fcfcfc;
+    border: 1px solid;
+    border-color: #d8d8d8 #d1d1d1 #c3c3c3;
+    border-radius: 2px;
+    cursor: pointer;
+    @include linear-gradient(top, #fefefe, #eee);
+    @include box-shadow(inset 0 - 1 px rgba(0, 0, 0, .03),
+                        0 1 px rgba(0, 0, 0, .04));
+}
+
+    .register-button:active {
+            background: #eee;
+            border-color: #c3c3c3 #d1d1d1 #d8d8d8;
+            @include linear-gradient(top, #eee, #fcfcfc);
+            @include box-shadow(inset 0 1px rgba(0,0,0, .03));
+    }
+
+    .register-button:focus { outline: 0; }
+
+
+
+:-moz-placeholder { color: #aaa; font-weight: 300; }
+::-moz-placeholder { color: #aaa; font-weight: 300; opacity: 1; }
+::-webkit-input-placeholder { color: #aaa; font-weight: 300; }
+:-ms-input-placeholder { color: #aaa; font-weight: 300; }
+
+::-moz-focus-inner { border: 0; padding: 0; }
