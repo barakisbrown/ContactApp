@@ -34,7 +34,9 @@ $(function () {
     });
 
     // THE FOLLOWING BUTTONS ARE NOT YET IMPLEMENTED
-    $(".register").click(function() { alert("Not Implemented");})
+    $(".register").click(function() {
+       window.location.replace("http://localhost:3000/register");
+    })
     $(".forgot").click(function() { alert("Not Implemented"); });
 
     // way to validate the form
